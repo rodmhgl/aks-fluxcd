@@ -68,3 +68,10 @@ git push
 ```
 
 The repository should now be setup for FluxCD / Terraform to consume.
+
+## Resources
+
+- [Git going with GitOps on AKS: A Step-by-Step Guide using FluxCD AKS Extension](https://dev.to/azure/git-going-with-gitops-on-aks-a-step-by-step-guide-using-fluxcd-aks-extension-499m)
+- [Tutorial: Deploy applications using GitOps with Flux v2](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
+- [Bootstrap your GitOps-enabled AKS cluster with Terraform: A code sample using the Flux v2 K8s Extension](https://dev.to/azure/bootstrap-your-gitops-enabled-aks-cluster-with-terraform-a-code-sample-using-the-flux-v2-k8s-extension-1l6d)
+- [Flux V2 and Microsoft AKS](https://medium.com/@anoop.srivastava/flux-v2-and-microsoft-aks-7425e098a265)
