@@ -4,7 +4,7 @@
 # Local detris
 aks-store-demo-manifests/
 mykubeconfig
-*.sh
+gitgoing.sh
 
 # .tfstate files
 *.tfstate
