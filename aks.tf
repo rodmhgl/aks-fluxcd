@@ -5,14 +5,16 @@ locals {
 }
 
 resource "azurerm_kubernetes_cluster" "this" {
-  name                = local.cluster-name
-  location            = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  kubernetes_version  = "1.26.6"
-  dns_prefix          = local.dns_prefix
-  node_resource_group = "MC_${azurerm_resource_group.this.name}_${local.cluster-name}_${azurerm_resource_group.this.location}"
-  sku_tier            = "Free"
-  tags                = local.tags
+  name                      = local.cluster-name
+  location                  = azurerm_resource_group.this.location
+  resource_group_name       = azurerm_resource_group.this.name
+  kubernetes_version        = "1.26.6"
+  dns_prefix                = local.dns_prefix
+  node_resource_group       = "MC_${azurerm_resource_group.this.name}_${local.cluster-name}_${azurerm_resource_group.this.location}"
+  sku_tier                  = "Free"
+  oidc_issuer_enabled       = true
+  workload_identity_enabled = true
+  tags                      = local.tags
 
   default_node_pool {
     name       = "default"
@@ -29,27 +31,6 @@ resource "azurerm_kubernetes_cluster" "this" {
     network_plugin = "kubenet"
   }
 
-  oidc_issuer_enabled       = true
-  workload_identity_enabled = true
-
-  # Requires Microsoft.ContainerService/AzureServiceMeshPreview
-  service_mesh_profile {
-    mode                             = "Istio"
-    external_ingress_gateway_enabled = true
-  }
-
-}
-
-# Requires Microsoft.ContainerService/AzureServiceMeshPreview
-data "kubernetes_service" "this" {
-  metadata {
-    name      = "aks-istio-ingressgateway-external"
-    namespace = "aks-istio-ingress"
-  }
-
-  depends_on = [
-    local_file.kubeconfig
-  ]
 }
 
 resource "local_file" "kubeconfig" {
