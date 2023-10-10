@@ -46,7 +46,7 @@ kubectl create namespace store-dev --dry-run=client -o yaml > namespace.yaml
 kustomize create --resources namespace.yaml,./../../base --namespace store-dev
 
 ## Note: I found it necessary to remove the liveness probes from store-admin and store-front yaml files
-## If your store-admin or store-front pads are caught in a crash cycle, this is the likely cause
+## If your store-admin or store-front pods are caught in a crash cycle, this is the likely cause
 
 # view the kustomization.yaml file
 cat kustomization.yaml
