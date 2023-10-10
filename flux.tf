@@ -1,5 +1,5 @@
 locals {
-  git_url        = "https://github.com/${var.gh_user}/${var.repo_name}"
+  git_url = "https://github.com/${var.gh_user}/${var.repo_name}"
 }
 
 resource "azurerm_kubernetes_cluster_extension" "this" {

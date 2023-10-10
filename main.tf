@@ -3,7 +3,7 @@ locals {
     lab = "aks-fluxcd"
     env = "dev"
   }
-  rg-name        = "rg-${var.suffix}"
+  rg-name = "rg-${var.suffix}"
 }
 
 resource "azurerm_resource_group" "this" {

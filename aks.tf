@@ -2,6 +2,7 @@ locals {
   cluster-name   = "aks-${var.suffix}"
   extension_name = "aks-${var.suffix}-fluxcd"
 }
+
 resource "azurerm_kubernetes_cluster" "this" {
   name                = local.cluster-name
   location            = azurerm_resource_group.this.location
@@ -32,7 +33,7 @@ resource "azurerm_kubernetes_cluster" "this" {
 
   # Requires Microsoft.ContainerService/AzureServiceMeshPreview
   service_mesh_profile {
-    mode = "Istio"
+    mode                             = "Istio"
     external_ingress_gateway_enabled = true
   }
 
