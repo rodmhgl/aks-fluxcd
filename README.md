@@ -1,4 +1,4 @@
-# Creation of README pending
+# Creation of full README pending
 
 ## Quick overview
 
