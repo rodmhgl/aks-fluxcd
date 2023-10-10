@@ -1,6 +1,7 @@
 locals {
   cluster-name   = "aks-${var.suffix}"
   extension_name = "aks-${var.suffix}-fluxcd"
+  dns_prefix     = "${local.cluster-name}-${azurerm_resource_group.this.name}-29f41"
 }
 
 resource "azurerm_kubernetes_cluster" "this" {
@@ -8,7 +9,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   kubernetes_version  = "1.26.6"
-  dns_prefix          = "${local.cluster-name}-${azurerm_resource_group.this.name}-29f41"
+  dns_prefix          = local.dns_prefix
   node_resource_group = "MC_${azurerm_resource_group.this.name}_${local.cluster-name}_${azurerm_resource_group.this.location}"
   sku_tier            = "Free"
   tags                = local.tags
