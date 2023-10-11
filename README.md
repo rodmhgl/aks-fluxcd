@@ -16,6 +16,21 @@ The majority of the below pre-requisites can be installed via the `scripts/insta
 - flux
 - github cli
 
+### Features / Providers
+
+The Azure Features / Providers below can be registered using the `./scripts/register-providers.sh` script.
+
+#### Features
+
+`az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager`
+
+#### Providers
+
+`az provider register --namespace Microsoft.ContainerService`
+`az provider register --namespace Microsoft.Kubernetes`
+`az provider register --namespace Microsoft.KubernetesConfiguration`
+`az provider register --namespace Microsoft.ExtendedLocation`
+
 ### Repositories
 
 - Fork and clone this repository - [https://github.com/pauldotyu/aks-store-demo-manifests.git](https://github.com/pauldotyu/aks-store-demo-manifests.git)
