@@ -27,8 +27,11 @@ The Azure Features / Providers below can be registered using the `./scripts/regi
 #### Providers
 
 `az provider register --namespace Microsoft.ContainerService`
+
 `az provider register --namespace Microsoft.Kubernetes`
+
 `az provider register --namespace Microsoft.KubernetesConfiguration`
+
 `az provider register --namespace Microsoft.ExtendedLocation`
 
 ### Repositories
